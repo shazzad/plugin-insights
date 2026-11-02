@@ -1,0 +1,87 @@
+{
+	"name": "shazzad/plugin-insights",
+	"description": "Consent-based usage insights for WordPress plugins. No update or license code, safe for wordpress.org.",
+	"type": "library",
+	"keywords": [
+		"wordpress",
+		"plugin",
+		"insights",
+		"usage-tracking",
+		"telemetry",
+		"opt-in"
+	],
+	"homepage": "https://github.com/shazzad/plugin-insights",
+	"license": "GPL-2.0-or-later",
+	"authors": [
+		{
+			"name": "Shazzad Hossain Khan",
+			"homepage": "https://github.com/shazzad",
+			"role": "Developer"
+		}
+	],
+	"support": {
+		"issues": "https://github.com/shazzad/plugin-insights/issues",
+		"source": "https://github.com/shazzad/plugin-insights"
+	},
+	"require": {
+		"php": ">=7.4",
+		"ext-json": "*"
+	},
+	"require-dev": {
+		"brain/monkey": "^2.6",
+		"dealerdirect/phpcodesniffer-composer-installer": "^0.7.2",
+		"mockery/mockery": "^1.6",
+		"phpcompatibility/php-compatibility": "^9.3",
+		"phpunit/phpunit": "^9.0",
+		"squizlabs/php_codesniffer": "^3.6",
+		"wp-coding-standards/wpcs": "^3.1"
+	},
+	"autoload": {
+		"psr-4": {
+			"Shazzad\\PluginInsights\\": "src/"
+		}
+	},
+	"autoload-dev": {
+		"psr-4": {
+			"Shazzad\\PluginInsights\\Tests\\": "tests/"
+		}
+	},
+	"scripts": {
+		"test": "phpunit",
+		"phpcs": "phpcs --standard=WordPress src/ load.php",
+		"phpcbf": "phpcbf --standard=WordPress src/ load.php",
+		"phpcs-check": "phpcs --standard=PHPCompatibility --runtime-set testVersion 7.4- src/ load.php",
+		"lint": [
+			"@phpcs",
+			"@phpcs-check"
+		],
+		"fix": "@phpcbf"
+	},
+	"config": {
+		"platform": {
+			"php": "7.4"
+		},
+		"optimize-autoloader": true,
+		"sort-packages": true,
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true
+		}
+	},
+	"minimum-stability": "stable",
+	"prefer-stable": true,
+	"archive": {
+		"exclude": [
+			"/tests",
+			"/.github",
+			"/.gitignore",
+			"/.gitattributes",
+			"/phpunit.xml.dist",
+			"/CLAUDE.md"
+		]
+	},
+	"extra": {
+		"branch-alias": {
+			"dev-main": "4.x-dev"
+		}
+	}
+}
